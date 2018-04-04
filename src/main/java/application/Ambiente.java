@@ -20,25 +20,13 @@ public class Ambiente {
             if (borda.isEmpty()) {
                 return null;
             }
-            if (tempo == 0) {
-                try {
-                    // to sleep 3 seconds
-                    System.out.println("Trabalhando!!!");
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
+            no = removePrimeiro();
+            System.out.println(no.toString());
 
-                tempo = 2;
+            if (testaObjetivo(no)) {
+                return no;
             } else {
-                no = removePrimeiro();
-                System.out.println(no.toString());
-                if (testaObjetivo(no)) {
-                    return no;
-                } else {
-                    expandirLargura(no);
-                }
-                tempo--;
+                expandirLargura(no);
             }
         }
     }
@@ -68,26 +56,14 @@ public class Ambiente {
                 return null;
             }
 
-            if (tempo == 0) {
-                try {
-                    // to sleep 3 seconds
-                    System.out.println("Trabalhando!!!");
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                }
-
-                tempo = 2;
+            no = removePrimeiro();
+            System.out.println(no.toString());
+            if (testaObjetivo(no)) {
+                return no;
             } else {
-                no = removePrimeiro();
-                System.out.println(no.toString());
-                if (testaObjetivo(no)) {
-                    return no;
-                } else {
-                    expandirProfundidade(no);
-                }
-                tempo--;
+                expandirProfundidade(no);
             }
+
         }
     }
 
