@@ -23,7 +23,7 @@ public class Ambiente {
             if (tempo == 0) {
                 try {
                     // to sleep 3 seconds
-                    System.out.println("olhando o zapzap");
+                    System.out.println("Trabalhando!!!");
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -71,7 +71,7 @@ public class Ambiente {
             if (tempo == 0) {
                 try {
                     // to sleep 3 seconds
-                    System.out.println("olhando o zapzap");
+                    System.out.println("Trabalhando!!!");
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
