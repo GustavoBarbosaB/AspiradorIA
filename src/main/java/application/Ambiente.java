@@ -6,7 +6,6 @@ public class Ambiente {
 
     private ArrayList<Estado> borda;
     private ArrayList<Estado> expandidos;
-    private int tempo = 2;
 
     public Ambiente() {
         borda = new ArrayList<Estado>();
