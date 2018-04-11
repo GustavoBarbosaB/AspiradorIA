@@ -50,18 +50,25 @@ public class Ambiente {
     public Estado buscaEmArvoreProfundidade(Estado inicial) {
         borda.add(inicial);
         Estado no;
+        int i = 0;
         while (true) {
+
             if (borda.isEmpty()) {
                 return null;
             }
+            System.out.print("Borda "+i+": ");
+            for(Estado e:borda)
+                System.out.print(e.toString()+", ");
 
             no = removePrimeiro();
-            System.out.println(no.toString());
+            System.out.println("\nEstado pego da borda:"+no.toString());
+
             if (testaObjetivo(no)) {
                 return no;
             } else {
                 expandirProfundidade(no);
             }
+            i++;
 
         }
     }

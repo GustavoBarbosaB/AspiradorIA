@@ -4,20 +4,11 @@ public class Estado {
     private boolean A;
     private boolean B;
     private String posicao;
-    private Estado esq;
 
     public Estado(String posicao, boolean A, boolean B) {
         this.A = A;
         this.B = B;
         this.posicao = posicao;
-    }
-
-    public Estado getEsq() {
-        return esq;
-    }
-
-    public void setEsq(Estado esq) {
-        this.esq = esq;
     }
 
     public Estado getDir() {

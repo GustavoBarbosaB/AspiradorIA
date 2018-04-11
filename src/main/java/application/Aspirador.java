@@ -1,25 +1,6 @@
 package application;
 
-public class Aspirador /*extends Agent*/{
-    protected void setup() {
-        System.out.println("COE RAPAZIADA");
-    }
-
-    public Acao condAcao(Estado atual) {
-        if (atual.getPosicao().equals("A")) {
-            if (atual.isA()) {
-                return Acao.ASPIRAR;
-            }else{
-                return Acao.DIREITA;
-            }
-        } else {
-            if (atual.isB()) {
-                return Acao.ASPIRAR;
-            } else{
-                return Acao.ESQUERDA;
-            }
-        }
-    }
+public class Aspirador {
 
     public Estado proximoEstado(Estado atual, Acao acao) {
         if (atual.getPosicao().equals("A")) {
