@@ -6,6 +6,7 @@ public class Ambiente {
 
     private ArrayList<Estado> borda;
     private ArrayList<Estado> expandidos;
+    private int numExpandidos=0,numGerados=0;
 
     public Ambiente() {
         borda = new ArrayList<Estado>();
@@ -64,28 +65,44 @@ public class Ambiente {
             System.out.println("\nEstado pego da borda:"+no.toString());
 
             if (testaObjetivo(no)) {
-                return no;
+                if(expandidos.size()==1)
+                    numExpandidos++;
+                break;
             } else {
+                numExpandidos++;
                 expandirProfundidade(no);
             }
             i++;
 
         }
+        System.out.println("Numero de expandidos: "+numExpandidos);
+        System.out.println("Numero de gerados: "+numGerados);
+        System.out.println("Numero de profundidade: "+numExpandidos);
+
+        return no;
     }
+    /*Quantos foram expandidos
+    * Qauntos foram gerados
+    * Qual a profundidade
+    * */
 
     private void expandirProfundidade(Estado no) {
         Aspirador agente = new Aspirador();
         Estado aux;
+        expandidos.add(no);
         aux = agente.proximoEstado(no, Acao.ASPIRAR);
         if (!expandidos.contains(aux) && !borda.contains(aux)) {
+            numGerados++;
             borda.add(0, aux);
         }
         aux = agente.proximoEstado(no, Acao.ESQUERDA);
         if (!expandidos.contains(aux) && !borda.contains(aux)) {
+            numGerados++;
             borda.add(0, aux);
         }
         aux = agente.proximoEstado(no, Acao.DIREITA);
         if (!expandidos.contains(aux) && !borda.contains(aux)) {
+            numGerados++;
             borda.add(0, aux);
         }
     }
@@ -93,7 +110,6 @@ public class Ambiente {
     private Estado removePrimeiro() {
         Estado aux = borda.get(0);
         borda.remove(borda.get(0));
-        expandidos.add(aux);
         return aux;
     }
 
